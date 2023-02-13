@@ -214,19 +214,16 @@ public class GraphicsMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(TemperaturaC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Longitudcable, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TemperaturaC, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(Longitudcable, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
                     .addComponent(jLabel6)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(Potencia, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,8 +272,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         Taislamiento.setBackground(new java.awt.Color(204, 204, 204));
         Taislamiento.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
         Taislamiento.setForeground(new java.awt.Color(233, 213, 202));
-        Taislamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PVC", "EPR ó XLPE" }));
-        Taislamiento.setSelectedIndex(-1);
+        Taislamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PVC", "XLPE o EPR" }));
         Taislamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TaislamientoActionPerformed(evt);
@@ -458,11 +454,11 @@ public class GraphicsMain extends javax.swing.JFrame {
     private void calcular_JbotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcular_JbotonActionPerformed
         // TODO add your handling code here:
         enviar();
-        float longi = 0, deman = 0, ten = 0, temper = 0;
+        float longitudC = 0, deman = 0, ten = 0, temper = 0;
         try {
-            longi = Float.parseFloat(Longitudcable.getText());
+            longitudC = Float.parseFloat(Longitudcable.getText());
         } catch (NumberFormatException e) {
-            longi = 0;
+            longitudC = 0;
         }
         try {
             deman = Float.parseFloat(Potencia.getText());
@@ -481,7 +477,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         }
         if (clcable.getNtuv() > 0) {
             if (clcable.getNtuh() > 0) {
-                if (longi > 0) {
+                if (longitudC > 0) {
                     if (clcable.getTiposistema() > 0) {
                         if (deman > 0) {
                             if (clcable.getTipoaislamiento() > 0) {
@@ -490,12 +486,12 @@ public class GraphicsMain extends javax.swing.JFrame {
                                         if (clcable.getTipoaislamiento() == 1 && temper > 60) {
                                             JOptionPane.showMessageDialog(null, "A esta temperatura no sirve un aislamiento de PVC");
                                         } else {
-                                            clcable.setLon(longi);
+                                            clcable.setLongitud(longitudC);
                                             clcable.setDemax(deman);
                                             clcable.setPoct(ten);
                                             clcable.setTemperatura(temper);
-                                            if (longi > 40) {
-                                                clcable.Calculomay40();
+                                            if (longitudC > 40) {
+                                                clcable.Longitudmayor40();
                                                 if (clcable.getS() == 0) {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
                                                 } else {
@@ -503,7 +499,7 @@ public class GraphicsMain extends javax.swing.JFrame {
                                                             + "ESTE CABLE PERMITE UNA CORRIENTE DE HASTA " + clcable.getCapcom() + " Amperios", "INFORMACION", 1);
                                                 }
                                             } else {
-                                                clcable.Calculomen40();
+                                                clcable.Longitudmenor40();
                                                 if (clcable.getS() == 0) {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
 

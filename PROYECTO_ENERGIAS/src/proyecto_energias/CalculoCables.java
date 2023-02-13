@@ -3,9 +3,15 @@ package proyecto_energias;
 
 public class CalculoCables {
 
-    public  int ntuv = 0, ntuh = 0, tiposistema, tipoaislamiento;
-    float lon, demax, poct, temperatura, deltaV = 0, I, k, fca, fct, Ipri, raiz3 = (float) 1.73205080757, s, capcom, corrp;
+    public  int ntuv = 0, ntuh = 0;
+    public int tiposistema, tipoaislamiento;
+    float longitud, demax, poct;
+    float temperatura;
+    float capcom, corrp;
+    float I,k,fca,fct,Ipri,s;
+    float raiz3 = (float) 1.73205080757;
     String valAwg = "";
+    float deltaV=0;
 
     public float getS() {
         return s;
@@ -98,9 +104,9 @@ public class CalculoCables {
     public CalculoCables() {
     }
 
-    public void Calculomen40() {
-        int[] trifasico = new int[]{16, 20, 27, 36, 48, 66, 88, 116, 144, 175, 222, 268, 311, 353, 402, 474, 545, 652, 750};
+    public void Longitudmenor40() {
         int[] monofasico = new int[]{18, 23, 31, 42, 54, 74, 100, 132, 163, 198, 252, 305, 353, 400, 456, 536, 617, 738, 848};
+        int[] trifasico = new int[]{16, 20, 27, 36, 48, 66, 88, 116, 144, 175, 222, 268, 311, 353, 402, 474, 545, 652, 750};
         double secno[] = new double[]{1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500};
         
         float Vcalc = 0;
@@ -119,14 +125,14 @@ public class CalculoCables {
         }
         deltaV = (tiposistema * poct) / 100;
         k = Calculok();
-        Vcalc = k * I * (lon / 1000);
+        Vcalc = k * I * (longitud / 1000);
         if (Vcalc < deltaV) {
             valAwg = calculoawg();
         } else {
             if (tiposistema == 380) {
                 for (int i = 0; i < 19; i++) {
                     if (trifasico[i] < k) {
-                        Vcalc = k * I * (lon / 1000);
+                        Vcalc = k * I * (longitud / 1000);
                         if (Vcalc < deltaV) {
                             s = Calculosecno(trifasico[i], tiposistema);
                             corrp = trifasico[i];
@@ -138,7 +144,7 @@ public class CalculoCables {
             } else {
                 for (int i = 0; i < 19; i++) {
                     if (monofasico[i] < k) {
-                        Vcalc = k * I * (lon / 1000);
+                        Vcalc = k * I * (longitud / 1000);
                         if (Vcalc < deltaV) {
                             s = Calculosecno(monofasico[i], tiposistema);
                             corrp = monofasico[i];
@@ -153,7 +159,7 @@ public class CalculoCables {
 
     }
 
-    public void Calculomay40() {
+    public void Longitudmayor40() {
         int tri[] = new int[]{16, 20, 27, 36, 48, 66, 88, 116, 144, 175, 222, 268, 311, 353, 402, 474, 545, 652, 750};
         int mono[] = new int[]{18, 23, 31, 42, 54, 74, 100, 132, 163, 198, 252, 305, 353, 400, 456, 536, 617, 738, 848};
         double secno[] = new double[]{1, 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300, 400, 500};
@@ -164,7 +170,7 @@ public class CalculoCables {
         } else {
             I = (float) ((demax * 1000) / (raiz3 * tiposistema * 0.9));
         }
-        k = deltaV / (I * (lon / 1000));
+        k = deltaV / (I * (longitud / 1000));
         s = Calculosecno(k, tiposistema);
         fca = facoag(getNtuv(), getNtuh());
         fct = facote();
@@ -411,12 +417,12 @@ public class CalculoCables {
         this.ntuh = ntuh;
     }
 
-    public float getLon() {
-        return lon;
+    public float getLongitud() {
+        return longitud;
     }
 
-    public void setLon(float lon) {
-        this.lon = lon;
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
 
     public int getTiposistema() {
