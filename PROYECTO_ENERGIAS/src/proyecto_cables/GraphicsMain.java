@@ -1,4 +1,4 @@
-package proyecto_energias;
+package proyecto_cables;
 
 import javax.swing.JButton;
 import java.awt.Image;
@@ -27,30 +27,34 @@ public class GraphicsMain extends javax.swing.JFrame {
     }
     
     
-    private static void enviar() {
+    private static void enviardatosJcombo() {
         try {
 
-            clcable.setNtuv(Integer.parseInt((String) TuboVertical.getSelectedItem()));
-            clcable.setNtuh(Integer.parseInt((String) TuboHorizontal.getSelectedItem()));
+            clcable.setNumerotubosVert(Integer.parseInt((String) TuboVertical.getSelectedItem()));
+            clcable.setNumerotubosHorizont(Integer.parseInt((String) TuboHorizontal.getSelectedItem()));
             switch (Tsistema.getSelectedIndex()) {
+                //Tipo de sistema monofásico
                 case 0 -> {
                     clcable.setTiposistema(120);
                 }
+                //Tipo de sistema trifásico
                 case 1 -> {
                     clcable.setTiposistema(380);
                 }
             }
             switch (Taislamiento.getSelectedIndex()) {
+                //Tipo de aislamiento PVC
                 case 0 -> {
                     clcable.setTipoaislamiento(1);
                 }
+                //Tipo de aislamiento XLPE O EPR
                 case 1 -> {
                     clcable.setTipoaislamiento(2);
                 }
             }
         } catch (NumberFormatException e) {
-            clcable.setNtuv(0);
-            clcable.setNtuh(0);
+            clcable.setNumerotubosVert(0);
+            clcable.setNumerotubosHorizont(0);
             clcable.setTiposistema(0);
             clcable.setTipoaislamiento(0);
 
@@ -105,7 +109,6 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         jLabel13.setBackground(new java.awt.Color(0, 0, 0));
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("ASIGNADOR CABLES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -131,11 +134,9 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Longitud cable:");
 
-        Longitudcable.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        Longitudcable.setForeground(new java.awt.Color(255, 255, 255));
+        Longitudcable.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         Longitudcable.setCaretColor(new java.awt.Color(204, 204, 204));
         Longitudcable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,16 +146,13 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("m");
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Potencia requerida");
 
-        Potencia.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        Potencia.setForeground(new java.awt.Color(233, 213, 202));
+        Potencia.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         Potencia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PotenciaKeyTyped(evt);
@@ -163,29 +161,24 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("KW");
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Caída Tensión");
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Temperatura");
 
-        CTension.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        CTension.setForeground(new java.awt.Color(233, 213, 202));
+        CTension.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         CTension.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CTensionKeyTyped(evt);
             }
         });
 
-        TemperaturaC.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        TemperaturaC.setForeground(new java.awt.Color(233, 213, 202));
+        TemperaturaC.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         TemperaturaC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TemperaturaCActionPerformed(evt);
@@ -199,12 +192,10 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("%");
 
         jLabel12.setBackground(new java.awt.Color(0, 0, 0));
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("°C");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -270,9 +261,10 @@ public class GraphicsMain extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         Taislamiento.setBackground(new java.awt.Color(204, 204, 204));
-        Taislamiento.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        Taislamiento.setForeground(new java.awt.Color(233, 213, 202));
+        Taislamiento.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         Taislamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PVC", "XLPE o EPR" }));
+        Taislamiento.setSelectedIndex(-1);
+        Taislamiento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Taislamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TaislamientoActionPerformed(evt);
@@ -284,8 +276,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         jLabel7.setText("Tipo aislamiento:");
 
         Tsistema.setBackground(new java.awt.Color(204, 204, 204));
-        Tsistema.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        Tsistema.setForeground(new java.awt.Color(233, 213, 202));
+        Tsistema.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         Tsistema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monofásico", "Trifásico" }));
         Tsistema.setSelectedIndex(-1);
         Tsistema.addActionListener(new java.awt.event.ActionListener() {
@@ -300,8 +291,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         jLabel5.setText("Tipo sistema:");
 
         TuboHorizontal.setBackground(new java.awt.Color(204, 204, 204));
-        TuboHorizontal.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        TuboHorizontal.setForeground(new java.awt.Color(233, 213, 202));
+        TuboHorizontal.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         TuboHorizontal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
         TuboHorizontal.setSelectedIndex(-1);
 
@@ -310,8 +300,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         jLabel2.setText("N Tubo horizontal:");
 
         TuboVertical.setBackground(new java.awt.Color(204, 204, 204));
-        TuboVertical.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
-        TuboVertical.setForeground(new java.awt.Color(233, 213, 202));
+        TuboVertical.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         TuboVertical.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
         TuboVertical.setSelectedIndex(-1);
         TuboVertical.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +362,6 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         calcular_Jboton.setBackground(new java.awt.Color(204, 204, 204));
         calcular_Jboton.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        calcular_Jboton.setForeground(new java.awt.Color(255, 255, 255));
         calcular_Jboton.setText("Calcular");
         calcular_Jboton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         calcular_Jboton.addActionListener(new java.awt.event.ActionListener() {
@@ -388,13 +376,15 @@ public class GraphicsMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(calcular_Jboton, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+                    .addComponent(calcular_Jboton, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,9 +395,9 @@ public class GraphicsMain extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(37, 37, 37)
+                        .addGap(42, 42, 42)
                         .addComponent(calcular_Jboton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
+                        .addGap(75, 75, 75))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -453,50 +443,52 @@ public class GraphicsMain extends javax.swing.JFrame {
 
     private void calcular_JbotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcular_JbotonActionPerformed
         // TODO add your handling code here:
-        enviar();
-        float longitudC = 0, deman = 0, ten = 0, temper = 0;
+        enviardatosJcombo();
+        float longitudC = 0;
+        float demanda = 0;
+        float tensionc = 0, temperatura = 0;
         try {
             longitudC = Float.parseFloat(Longitudcable.getText());
         } catch (NumberFormatException e) {
             longitudC = 0;
         }
         try {
-            deman = Float.parseFloat(Potencia.getText());
+            demanda = Float.parseFloat(Potencia.getText());
         } catch (NumberFormatException e) {
-            deman = 0;
+            demanda = 0;
         }
         try {
-            ten = Float.parseFloat(CTension.getText());
+            tensionc = Float.parseFloat(CTension.getText());
         } catch (NumberFormatException e) {
-            ten = 0;
+            tensionc = 0;
         }
         try {
-            temper = Float.parseFloat(TemperaturaC.getText());
+            temperatura = Float.parseFloat(TemperaturaC.getText());
         } catch (NumberFormatException e) {
-            temper = 0;
+            temperatura = 0;
         }
-        if (clcable.getNtuv() > 0) {
-            if (clcable.getNtuh() > 0) {
+        if (clcable.getNumerotubosVert() > 0) {
+            if (clcable.getNumerotubosHorizont() > 0) {
                 if (longitudC > 0) {
                     if (clcable.getTiposistema() > 0) {
-                        if (deman > 0) {
+                        if (demanda > 0) {
                             if (clcable.getTipoaislamiento() > 0) {
-                                if (ten > 0 && ten <= 100) {
-                                    if (temper > 0 && temper <= 80) {
-                                        if (clcable.getTipoaislamiento() == 1 && temper > 60) {
-                                            JOptionPane.showMessageDialog(null, "A esta temperatura no sirve un aislamiento de PVC");
+                                if (tensionc > 0 && tensionc <= 100) {
+                                    if (temperatura > 0 && temperatura <= 80) {
+                                        if (clcable.getTipoaislamiento() == 1 && temperatura > 60) {
+                                            JOptionPane.showMessageDialog(null, "La temperatura no es adecuada para un aislamiento de PVC");
                                         } else {
                                             clcable.setLongitud(longitudC);
-                                            clcable.setDemax(deman);
-                                            clcable.setPoct(ten);
-                                            clcable.setTemperatura(temper);
+                                            clcable.setDemandax(demanda);
+                                            clcable.setPotencia(tensionc);
+                                            clcable.setTemperatura(temperatura);
                                             if (longitudC > 40) {
                                                 clcable.Longitudmayor40();
                                                 if (clcable.getS() == 0) {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
                                                 } else {
-                                                    JOptionPane.showMessageDialog(rootPane, "SE NECESITA UN CABLE DE CALIBRE (AWG) " + clcable.getValAwg() + " DE SECCION NOMINAL " + clcable.getS() + " mm^2\n"
-                                                            + "ESTE CABLE PERMITE UNA CORRIENTE DE HASTA " + clcable.getCapcom() + " Amperios", "INFORMACION", 1);
+                                                    JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de calibre (AWG) " + clcable.getValAwg() + ", con una sección nominal: " + clcable.getS() + " mm^2\n"
+                                                            + ", y permite una corriente de: " + clcable.getCapcom() + " Amperios", "INFORMACION", 1);
                                                 }
                                             } else {
                                                 clcable.Longitudmenor40();
@@ -504,34 +496,34 @@ public class GraphicsMain extends javax.swing.JFrame {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
 
                                                 } else {
-                                                    JOptionPane.showMessageDialog(rootPane, "SE NECESITA UN CABLE DE CALIBRE (AWG) " + clcable.getValAwg() + " DE SECCION NOMINAL " + clcable.getS() + " mm^2\n"
-                                                            + "ESTE CABLE PERMITE UNA CORRIENTE DE HASTA " + clcable.getCorrp() + " Amperios", "INFORMACION", 1);
+                                                    JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de CALIBRE (AWG): " + clcable.getValAwg() + " con una SECCIÓN NOMINAL: " + clcable.getS() + " mm^2\n"
+                                                            + ", y permite una corriente de:  " + clcable.getCorrp() + " Amperios", "INFORMACION", 1);
                                                 }
                                             }
                                         }
                                     } else {
-                                        JOptionPane.showMessageDialog(rootPane, "La temperatura debe estar en un rango de 10°C y 80°C", "ERROR", 0);
+                                        JOptionPane.showMessageDialog(rootPane, "El valor de temperatura debe estar entre 10°C y 80°C", "ERROR", 0);
                                     }
                                 } else {
-                                    JOptionPane.showMessageDialog(rootPane, "El porcentaje de caida de tension debe estar entre 1% y 100%", "ERROR", 0);
+                                    JOptionPane.showMessageDialog(rootPane, "El valor de caida de tension debe estar entre 1% y 100%", "ERROR", 0);
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un TIPO DE AISLAMIENTO", "ERROR", 0);
+                                JOptionPane.showMessageDialog(rootPane, "No ha seleccionado el tipo de aislamiento!!!", "ERROR", 0);
                             }
                         } else {
-                            JOptionPane.showMessageDialog(rootPane, "La demanda maxima debe ser mayor a 0", "ERROR", 0);
+                            JOptionPane.showMessageDialog(rootPane, "El valor demanda maxima (potencia) debe ser mayor que 0!", "ERROR", 0);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un TIPO DE SISTEMA", "ERROR", 0);
+                        JOptionPane.showMessageDialog(rootPane, "No ha seleccionado tipo de sistema!!!", "ERROR", 0);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "La LONGITUD debe ser Mayor a 0", "ERROR", 0);
+                    JOptionPane.showMessageDialog(rootPane, "El valor de longitud del cable debe ser Mayor que 0!", "ERROR", 0);
                 }
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Debe Seleccionar un NUMERO DE TUBOS AGRUPADOS HORIZONTALMENTE", "ERROR", 0);
+                JOptionPane.showMessageDialog(rootPane, "No ha seleccionado la cantidad de tubos agrupados horizontalmente!", "ERROR", 0);
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Debe Seleccionar un NUMERO DE TUBOS AGRUPADOS VERTICALMENTE", "ERROR", 0);
+            JOptionPane.showMessageDialog(rootPane, "No ha seleccionado la cantidad de tubos agrupados verticalmente!", "ERROR", 0);
         }
 
     }//GEN-LAST:event_calcular_JbotonActionPerformed
