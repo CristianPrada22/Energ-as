@@ -97,6 +97,15 @@ public class GraphicsMain extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         calcular_Jboton = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CALCULADORA DE CABLES");
@@ -128,7 +137,7 @@ public class GraphicsMain extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(0, 181, 128));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setForeground(new java.awt.Color(233, 213, 202));
 
@@ -138,6 +147,11 @@ public class GraphicsMain extends javax.swing.JFrame {
 
         Longitudcable.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
         Longitudcable.setCaretColor(new java.awt.Color(204, 204, 204));
+        Longitudcable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LongitudcableActionPerformed(evt);
+            }
+        });
         Longitudcable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 LongitudcableKeyTyped(evt);
@@ -203,7 +217,7 @@ public class GraphicsMain extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -225,7 +239,7 @@ public class GraphicsMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11))
                     .addComponent(jLabel9))
-                .addGap(72, 72, 72))
+                .addGap(40, 40, 40))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +268,7 @@ public class GraphicsMain extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TemperaturaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 181, 128));
@@ -361,14 +375,93 @@ public class GraphicsMain extends javax.swing.JFrame {
         );
 
         calcular_Jboton.setBackground(new java.awt.Color(204, 204, 204));
-        calcular_Jboton.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        calcular_Jboton.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
         calcular_Jboton.setText("Calcular");
-        calcular_Jboton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        calcular_Jboton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         calcular_Jboton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calcular_JbotonActionPerformed(evt);
             }
         });
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
+        jLabel15.setText("Calibre (AWG):");
+
+        jLabel16.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
+        jLabel16.setText("Sección nominal:");
+
+        jLabel17.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 16)); // NOI18N
+        jLabel17.setText("Corriente hasta:");
+
+        jLabel18.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 30)); // NOI18N
+        jLabel18.setText("Respuesta");
+
+        jLabel19.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel20.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel21.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton1.setBackground(new java.awt.Color(0, 181, 128));
+        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        jButton1.setText("Limpiar");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(274, 274, 274))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(jLabel18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -377,13 +470,16 @@ public class GraphicsMain extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(calcular_Jboton, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(calcular_Jboton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -391,18 +487,16 @@ public class GraphicsMain extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(42, 42, 42)
-                        .addComponent(calcular_Jboton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(calcular_Jboton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -487,8 +581,8 @@ public class GraphicsMain extends javax.swing.JFrame {
                                                 if (clcable.getS() == 0) {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
                                                 } else {
-                                                    JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de calibre (AWG) " + clcable.getValAwg() + ", con una sección nominal: " + clcable.getS() + " mm^2\n"
-                                                            + ", y permite una corriente de: " + clcable.getCapcom() + " Amperios", "INFORMACION", 1);
+                                                    //JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de calibre (AWG) " + clcable.getValAwg() + ", con una sección nominal: " + clcable.getS() + " mm^2\n"
+                                                    //        + ", y permite una corriente de: " + clcable.getCapcom() + " Amperios", "INFORMACION", 1);
                                                 }
                                             } else {
                                                 clcable.Longitudmenor40();
@@ -496,8 +590,16 @@ public class GraphicsMain extends javax.swing.JFrame {
                                                     JOptionPane.showMessageDialog(rootPane, "EL CABLE NO CUMPLE CON LAS CONDICIONES PROPUESTAS", "INFORMACION", 1);
 
                                                 } else {
-                                                    JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de CALIBRE (AWG): " + clcable.getValAwg() + " con una SECCIÓN NOMINAL: " + clcable.getS() + " mm^2\n"
-                                                            + ", y permite una corriente de:  " + clcable.getCorrp() + " Amperios", "INFORMACION", 1);
+                                                    //JOptionPane.showMessageDialog(rootPane, "Se recomienda un cable de CALIBRE (AWG): " + clcable.getValAwg() + " con una SECCIÓN NOMINAL: " + clcable.getS() + " mm^2\n"
+                                                    //        + ", y permite una corriente de:  " + clcable.getCorrp() + " Amperios", "INFORMACION", 1);
+                                                    String calibre= String.valueOf(clcable.getValAwg());
+                                                    jLabel19.setText(calibre);
+                                                    String seccion= String.valueOf(clcable.getS());
+                                                    jLabel20.setText(seccion);
+                                                    String corriente= String.valueOf(clcable.getCorrp());
+                                                    jLabel21.setText(corriente);
+                                                    
+                                                    
                                                 }
                                             }
                                         }
@@ -543,6 +645,26 @@ public class GraphicsMain extends javax.swing.JFrame {
     private void TaislamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaislamientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TaislamientoActionPerformed
+
+    private void LongitudcableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LongitudcableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LongitudcableActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jLabel19.setText(null);
+        jLabel20.setText(null);
+        jLabel21.setText(null);
+        CTension.setText(null);
+        Longitudcable.setText(null);
+        TemperaturaC.setText(null);
+        TuboVertical.setSelectedIndex(-1);
+        TuboHorizontal.setSelectedIndex(-1);
+        Tsistema.setSelectedIndex(-1);
+        Taislamiento.setSelectedIndex(-1);
+        
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -592,13 +714,21 @@ public class GraphicsMain extends javax.swing.JFrame {
     private static javax.swing.JComboBox<String> TuboHorizontal;
     private static javax.swing.JComboBox<String> TuboVertical;
     private javax.swing.JButton calcular_Jboton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -609,5 +739,6 @@ public class GraphicsMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
